@@ -56,4 +56,4 @@ drawing inspiration from:
 [5]:	http://www.ulyssesapp.com/
 [6]:	https://medium.com/new-story
 
-[image-1]:	https://raw.githubusercontent.com/tomhuhges/caret/4fd5c4f9ed849dd9e3fafdc7190416574f2d2866/sketch/desktop.png "desktop sheet view"
+[image-1]:	https://raw.githubusercontent.com/tomhuhges/caret/master/sketch/desktop.png "desktop sheet view"
