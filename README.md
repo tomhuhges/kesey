@@ -40,6 +40,14 @@ drawing inspiration from:
 [regexr][5]  
 [contenteditable elements][6]
 
+---- 
+
+### wireframe
+
+**sheet view**  
+
+![][image-1]
+
 
 [1]:	https://github.com/dropbox/dropbox-sdk-js
 [2]:	http://www.ulyssesapp.com/
@@ -47,3 +55,5 @@ drawing inspiration from:
 [4]:	https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 [5]:	http://regexr.com/
 [6]:	https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content
+
+[image-1]:	https://github.com/
