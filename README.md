@@ -29,7 +29,7 @@ drawing inspiration from:
 - the [ulysses desktop app][2]
 - medium's [story editor][3]
 
-[regexr][4]
+[regexr][4]  
 [contenteditable elements][5]
 
 
