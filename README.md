@@ -32,13 +32,13 @@
 
 ### references
 
+[markdown cheatsheet][2]  
+[regexr][3]  
+[contenteditable elements][4]  
+  
 drawing inspiration from:  
-- the [ulysses desktop app][2]
-- medium's [story editor][3]
-
-[markdown cheatsheet][4]  
-[regexr][5]  
-[contenteditable elements][6]
+- the [ulysses desktop app][5]
+- medium's [story editor][6]
 
 ---- 
 
@@ -50,10 +50,10 @@ drawing inspiration from:
 
 
 [1]:	https://github.com/dropbox/dropbox-sdk-js
-[2]:	http://www.ulyssesapp.com/
-[3]:	https://medium.com/new-story
-[4]:	https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
-[5]:	http://regexr.com/
-[6]:	https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content
+[2]:	https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+[3]:	http://regexr.com/
+[4]:	https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content
+[5]:	http://www.ulyssesapp.com/
+[6]:	https://medium.com/new-story
 
 [image-1]:	https://raw.githubusercontent.com/tomhuhges/caret/master/sketch/desktop.png "desktop sheet view"
