@@ -36,7 +36,7 @@ drawing inspiration from:
 - the [ulysses desktop app][2]
 - medium's [story editor][3]
 
-[markdown cheatsheet][4]
+[markdown cheatsheet][4]  
 [regexr][5]  
 [contenteditable elements][6]
 
