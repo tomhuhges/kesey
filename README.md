@@ -4,6 +4,12 @@
   
 **it will:**  
 - recognise markdown as you type and style text accordingly
+	- headings (1-6)
+	- strong, emphasis
+	- bullet lists, numbered lists
+	- block quotes
+	- links, images
+	- inline code, code blocks
 - auto-save your documents as .md files in dropbox
 - load any dropbox .md document  
 	  
@@ -29,12 +35,14 @@ drawing inspiration from:
 - the [ulysses desktop app][2]
 - medium's [story editor][3]
 
-[regexr][4]  
-[contenteditable elements][5]
+[markdown cheatsheet][4]
+[regexr][5]  
+[contenteditable elements][6]
 
 
 [1]:	https://github.com/dropbox/dropbox-sdk-js
 [2]:	http://www.ulyssesapp.com/
 [3]:	https://medium.com/new-story
-[4]:	http://regexr.com/
-[5]:	https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content
+[4]:	https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+[5]:	http://regexr.com/
+[6]:	https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content
