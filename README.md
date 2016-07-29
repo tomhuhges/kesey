@@ -19,7 +19,7 @@
 
 **it may**
 - include a markdown guide
-- have a day/night mode option
+- include day/night mode
 
 ---- 
 
