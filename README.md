@@ -56,4 +56,4 @@ drawing inspiration from:
 [5]:	http://regexr.com/
 [6]:	https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content
 
-[image-1]:	https://github.com/
+[image-1]:	https://raw.githubusercontent.com/tomhuhges/caret/master/sketch/desktop.png "desktop sheet view"
