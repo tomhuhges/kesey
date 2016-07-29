@@ -19,7 +19,7 @@
 - regex + event handling to style text as the user types
 - integration with the [dropbox js sdk][1]
 	- to create a new folder in the user's dropbox
-	- to save files
+	- to auto save files at regular intervals
 	- to load .md files
 - section to list files in dropbox/manage dropbox permissions
 - contact
