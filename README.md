@@ -10,6 +10,7 @@
 	- block quotes
 	- links, images
 	- inline code, code blocks
+	- page break
 - auto-save your documents as .md files in dropbox
 - load any dropbox .md document  
 	  
