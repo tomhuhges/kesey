@@ -4,8 +4,8 @@
   
 **it will:**  
 - recognise markdown as you type and style text accordingly
-- auto-save your documents as .md files in Dropbox
-- load any Dropbox .md document  
+- auto-save your documents as .md files in dropbox
+- load any dropbox .md document  
 	  
 **it will need:**  
 - a minimalist setup that allows users to simply start typing as soon as they load the web app
