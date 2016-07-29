@@ -1,6 +1,6 @@
 # caret
 
-`caret` is a minimalist markdown notetaker for the browser  
+`caret` is a minimalist markdown notepad for the browser  
   
 **it will:**  
 - recognise markdown as you type and style text accordingly
