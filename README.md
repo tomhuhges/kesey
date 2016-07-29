@@ -2,12 +2,12 @@
 
 `caret` is a minimalist markdown editor for the browser  
   
-**it will:  
+**it will:**  
 - recognise markdown as you type and style text accordingly
 - auto-save your documents as .md files in Dropbox
 - load any Dropbox .md document  
 	  
-**it will need:  
+**it will need:**  
 - a minimalist setup that allows users to simply start typing as soon as they load the web app
 - regex + event handling to style text as the user types
 - integration with the [dropbox js sdk][1]
@@ -17,7 +17,7 @@
 - section to list files in dropbox/manage dropbox permissions
 - contact
 
-**it may
+**it may**
 - include a markdown guide
 - have a day/night mode option
 
