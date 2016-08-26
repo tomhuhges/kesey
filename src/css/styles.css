@@ -11,11 +11,18 @@
 
 #container {
 	width: 1200px;
-	max-width: 50%;
+	max-width: 60%;
 	margin: 0 auto;
 }
 
 #textarea {
 	padding: 100px 50px;
 	font-size: 16px;
+	min-height: 60vh;
+}
+
+[contenteditable=true]:empty:before {
+  content: attr(placeholder);
+  color: #ccc;
+  display: block;
 }
