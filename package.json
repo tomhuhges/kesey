@@ -1,0 +1,29 @@
+{
+  "name": "caret",
+  "version": "1.0.0",
+  "description": "a minimalist markdown editor for the browser",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomhuhges/caret.git"
+  },
+  "author": "tomhuhges",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomhuhges/caret/issues"
+  },
+  "homepage": "https://github.com/tomhuhges/caret#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "gulp": "^3.9.1"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "grunt": "^1.0.1"
+  }
+}
