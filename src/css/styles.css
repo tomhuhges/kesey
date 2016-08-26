@@ -1,0 +1,21 @@
+
+
+
+* {
+	outline: none;
+	font-family: 'Menlo'!important;
+	font-size: 16px!important;
+	line-height: normal!important;
+	color: #555!important;
+}
+
+#container {
+	width: 1200px;
+	max-width: 50%;
+	margin: 0 auto;
+}
+
+#textarea {
+	padding: 100px 50px;
+	font-size: 16px;
+}
