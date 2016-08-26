@@ -36,6 +36,16 @@ module.exports = function(grunt) {
     watch: {
       files: ['<%= jshint.files %>'],
       tasks: ['jshint', 'qunit']
+    },
+    browserSync: {
+      bsFiles: {
+          src : 'assets/css/*.css'
+      },
+      options: {
+          server: {
+              baseDir: "./"
+          }
+      }
     }
   });
 
@@ -44,6 +54,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-browser-sync');
 
   grunt.registerTask('test', ['jshint', 'qunit']);
   grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
