@@ -49,12 +49,12 @@ const defaults = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'caret',
+      title: 'kesey',
       template: './src/index.ejs',
     }),
     new HtmlWebpackPlugin({
       filename: '200.html',
-      title: 'caret',
+      title: 'kesey',
       template: './src/index.ejs',
     }),
   ],

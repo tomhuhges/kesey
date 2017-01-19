@@ -39,7 +39,7 @@ export default function prod(options) {
       new ExtractTextPlugin('[name].[chunkhash].css'),
       new CopyWebpackPlugin(
         [
-          { from: './src/assets', to: 'assets' },
+          { from: './src/public', to: 'public' },
           { from: 'CNAME' },
         ],
         { ignore: ['*.DS_Store', '*.png', '*.gif', '*.jpg', '*.jpeg'] },
