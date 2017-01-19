@@ -1,4 +1,6 @@
-![tests](https://travis-ci.org/tomhuhges/kesey.svg?branch=master "Travis badge")
+[]![travis](https://travis-ci.org/tomhuhges/kesey.svg?branch=master "Travis badge")](https://travis-ci.org/tomhuhges/kesey)
+[![codecov](https://codecov.io/gh/tomhuhges/kesey/branch/master/graph/badge.svg "Codecov badge")](https://codecov.io/gh/tomhuhges/kesey)
+
 
 # kesey
 
