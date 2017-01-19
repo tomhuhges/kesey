@@ -1,3 +1,5 @@
+![tests](https://travis-ci.org/tomhuhges/kesey.svg?branch=master "Travis badge")
+
 # kesey
 
 [`kesey`](http://kesey.co/) is a sexy markdown notepad for the browser  
