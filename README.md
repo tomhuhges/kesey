@@ -1,6 +1,6 @@
-# caret
+# kesey
 
-`caret` is a sexy markdown notepad for the browser  
+`kesey` is a sexy markdown notepad for the browser  
 
 **it will:**  
 - recognise markdown as you type and style text accordingly
