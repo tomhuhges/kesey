@@ -1,0 +1,19 @@
+{
+  "rules": {
+    "no-console": 0,
+    "no-unused-vars": 0,
+    "quotes": [1, "single"],
+    "semi": [1, "never"],
+    "indent": [1, 2],
+    "import/no-extraneous-dependencies": [2, {  }],
+    },
+  "env": {
+    'es6': true,
+    'browser': true,
+    'commonjs': true,
+    'node': true,
+    'mocha': true,
+  },
+  "parser": "babel-eslint",
+  "extends": "airbnb"
+}

@@ -1,6 +1,2 @@
-.DS_Store
-
-build
-test
-planning
-node_modules
+**/*/.DS_Store
+**/node_modules

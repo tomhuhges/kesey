@@ -1,7 +1,7 @@
 # caret
 
-`caret` is a minimalist markdown notepad for the browser  
-  
+`caret` is a sexy markdown notepad for the browser  
+
 **it will:**  
 - recognise markdown as you type and style text accordingly
 	- headings (1-6)
@@ -13,7 +13,7 @@
 	- page break
 - auto-save your documents as .md files in dropbox
 - load any dropbox .md document  
-	  
+
 **it will need:**  
 - a minimalist setup that allows users to simply start typing as soon as they load the web app
 - regex + event handling to style text as the user types
@@ -28,26 +28,27 @@
 - include a markdown guide
 - include day/night mode
 
----- 
+=======
 
 ### references
 
 [markdown cheatsheet][2]  
 [regexr][3]  
 [contenteditable elements][4]  
-  
+
+=======
+
 drawing inspiration from:  
 - the [ulysses desktop app][5]
 - medium's [story editor][6]
 
----- 
+=======
 
 ### wireframe
 
 **sheet view**  
 
 ![][image-1]
-
 
 [1]:	https://github.com/dropbox/dropbox-sdk-js
 [2]:	https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
