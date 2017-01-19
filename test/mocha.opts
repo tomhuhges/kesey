@@ -1,0 +1,5 @@
+src/**/*.spec.js*
+--compilers jsx:babel-register
+--compilers js:babel-register
+--require test/setup.js
+--recursive
