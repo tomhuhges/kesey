@@ -23,6 +23,7 @@
     "chai": "^3.5.0",
     "chai-enzyme": "^0.6.1",
     "clean-webpack-plugin": "^0.1.14",
+    "codecov": "^1.0.1",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.0",
     "enzyme": "^2.7.0",
@@ -49,7 +50,8 @@
     "webpack-validator": "^2.2.9"
   },
   "scripts": {
-    "cover": "babel-node `npm bin`/isparta cover --include '**/*.js*' _mocha -- ",
+    "codecov": "codecov",
+    "cover": "babel-node `npm bin`/isparta cover --include '**/*.js*' _mocha --report lcovonly -- -R spec",
     "test": "mocha",
     "test:watch": "npm test -- --watch",
     "start": "webpack-dev-server",
