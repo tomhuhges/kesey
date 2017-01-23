@@ -15,7 +15,7 @@ const paths = {
 const defaults = {
   entry: {
     app: paths.src,
-    // style: `${paths.css}/style.css`,,
+    style: `${paths.css}/styles.css`,
   },
   output: {
     path: paths.dist,

@@ -43,6 +43,7 @@
     "react-addons-test-utils": "^15.4.2",
     "sinon": "^1.17.7",
     "style-loader": "^0.13.1",
+    "tachyons": "^4.6.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2",
@@ -50,7 +51,6 @@
     "webpack-validator": "^2.2.9"
   },
   "scripts": {
-    "codecov": "codecov",
     "cover": "babel-node `npm bin`/isparta cover --include '**/*.js*' _mocha --report lcovonly -- -R spec",
     "test": "mocha",
     "test:watch": "npm test -- --watch",

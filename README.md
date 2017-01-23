@@ -4,7 +4,7 @@
 
 # kesey
 
-[`kesey`](http://kesey.co/) is a sexy markdown notepad for the browser  
+[`kesey`](http://kesey.co/) (/ˈkiːziː/) is a sexy markdown notepad for the browser  
 
 **it will:**  
 - recognise markdown as you type and style text accordingly
