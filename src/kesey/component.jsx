@@ -4,7 +4,7 @@ import Editor from '../editor/component'
 
 const Kesey = () =>
   (
-    <div className="code mh3">
+    <div className="code mid-gray mh3">
       <Header />
       <Editor />
     </div>
