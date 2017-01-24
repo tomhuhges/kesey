@@ -5,6 +5,7 @@ import Kesey from './kesey/component'
 
 export default(
   <Route path="/" component={App}>
-    <IndexRoute component={Kesey} /> {/* <route path="code" component={CodePage} /> */}
+    <IndexRoute component={Kesey} />
+    {/* <route path="code" component={CodePage} /> */}
   </Route>
 )
