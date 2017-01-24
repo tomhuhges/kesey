@@ -44,6 +44,8 @@
     "sinon": "^1.17.7",
     "style-loader": "^0.13.1",
     "tachyons": "^4.6.1",
+    "tachyons-flexbox": "^2.0.4",
+    "tachyons-links": "^3.0.9",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2",

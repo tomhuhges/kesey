@@ -2,19 +2,16 @@ import React from 'react'
 import chai, { expect } from 'chai'
 import chaiEnzyme from 'chai-enzyme'
 import { shallow, mount, render } from 'enzyme'
-import Kesey from './component'
+import Header from './component'
 
 chai.use(chaiEnzyme())
 
-describe('Kesey component', () => {
+describe('Header component', () => {
   let wrapper
   beforeEach(() => {
-    wrapper = shallow(<Kesey />)
+    wrapper = shallow(<Header />)
   })
   it('should exist', () => {
     expect(wrapper).to.have.length(1)
-  })
-  it('should render h1 with "kesey" text', () => {
-    expect(wrapper.find('p')).to.have.text('kesey')
   })
 })

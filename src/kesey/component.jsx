@@ -1,8 +1,11 @@
 import React from 'react'
+import Header from '../header/component'
 
 const Kesey = () =>
-  <div>
-    <h1>kesey</h1>
-  </div>
+  (
+    <div className="mh3">
+      <Header />
+    </div>
+  )
 
 export default Kesey
