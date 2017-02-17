@@ -11,7 +11,15 @@ describe('Header component', () => {
   beforeEach(() => {
     wrapper = shallow(<Header />)
   })
+  // does it render?
   it('should exist', () => {
     expect(wrapper).to.have.length(1)
   })
+  // does it render the correct thing?
+
+  // does it handle state properly?
+
+  // do the events work properly?
+
+  // edge cases?
 })
