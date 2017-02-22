@@ -8,7 +8,7 @@ import Login from './login/component'
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={Kesey} />
-    <route path="edit" component={Editor} />
+    <route path="edit" component={Kesey} />
     <route path="login" component={Login} />
   </Route>
 )

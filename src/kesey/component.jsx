@@ -1,7 +1,7 @@
 import React from 'react'
 import Dropbox from 'dropbox'
-import { browserHistory } from 'react-router'
-import clientId from '../apiKeys'
+import dropbox from '../tools/dropbox'
+import localstorage from '../tools/localstorage'
 import Homepage from '../homepage/component'
 import Editor from '../editor/component'
 
@@ -13,49 +13,35 @@ class Kesey extends React.Component {
     }
   }
   componentWillMount() {
-    console.log(this.getAccessTokenFromLocalStorage())
-    console.log(this.getAccessTokenFromUrl())
-    console.log(this.getAccessToken())
     this.setState({ accessToken: this.getAccessToken() })
   }
-  getAuthUrl() {
-    const dbx = new Dropbox({ clientId })
-    const authUrl = dbx.getAuthenticationUrl('http://localhost:8080')
-    return authUrl
-  }
   getAccessToken() {
-    return this.getAccessTokenFromLocalStorage() || this.getAccessTokenFromUrl()
-  }
-  getAccessTokenFromLocalStorage() {
-    return localStorage.getItem('accessToken')
+    return localstorage.getAccessToken() || this.getAccessTokenFromUrl()
   }
   getAccessTokenFromUrl() {
-    const params = {}
+    const userData = {}
     let hash = this.props.location.hash
-    if (!hash) {
-      params.access_token = null
-    } else {
+    if (hash) {
       if (hash[0] === '#') hash = hash.substring(1)
       hash.split('&').forEach((parameter) => {
         const param = parameter.split('=')
-        params[param[0]] = param[1]
+        // replace %3A with :
+        userData[param[0]] = param[1].replace(/%3A/g, ':')
       })
-      localStorage.setItem('accessToken', params.access_token)
-      // this.setState({ accessToken: params.access_token })
+      localStorage.setItem('userData', JSON.stringify(userData))
     }
-    return params.access_token
+    return userData.access_token
   }
   isAuthenticated() {
     return this.state.accessToken
   }
   render() {
-    console.log(this.isAuthenticated())
     return (
       <div>
         { this.isAuthenticated() ? (
-          <Editor />
+          <Editor accessToken={this.state.accessToken} />
         ) : (
-          <Homepage authUrl={this.getAuthUrl()} />
+          <Homepage authUrl={dropbox.getAuthUrl()} />
         )}
       </div>
     )
