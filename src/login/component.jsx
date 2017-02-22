@@ -1,12 +1,6 @@
 import React from 'react'
 import Dropbox from 'dropbox'
-
-const getAuthUrl = () => {
-  const clientId = 'xxxxxxxxxxx'
-  const dbx = new Dropbox({ clientId })
-  const authUrl = dbx.getAuthenticationUrl('http://localhost:8080/login')
-  return authUrl
-}
+import clientId from '../apiKeys'
 
 class Login extends React.Component {
   constructor(props) {
@@ -16,23 +10,35 @@ class Login extends React.Component {
     }
   }
   componentDidMount() {
-    console.log(this.isAuthenticated())
-  }
-  getAccessTokenFromUrl() {
-    let hash = this.props.location.hash
-    if (hash[0] === '#') hash = hash.substring(1)
-    const params = {}
-    hash.split('&').forEach((parameter) => {
-      const param = parameter.split('=')
-      params[param[0]] = param[1]
-    })
-    return params.access_token
   }
   getFiles() {
     const dbx = new Dropbox({ accessToken: this.getAccessTokenFromUrl() })
+    const files = []
     dbx.filesListFolder({ path: '' })
-      .then(response => this.setState({ files: response.entries }))
-      .catch(error => console.error(error))
+      .then((response) => {
+        response.entries.forEach((entry) => {
+          const file = {
+            tag: entry['.tag'],
+            name: entry.name,
+            content: null,
+          }
+          files.push(file)
+          this.setState({ files })
+          if (file.tag === 'file') {
+            dbx.filesDownload({ path: entry.path_display })
+            .then((result) => {
+              const reader = new FileReader()
+              reader.onload = (data => (e) => {
+                file.content = `${e.target.result.substring(0, 100)}...`
+                this.setState({ files })
+              })()
+              reader.readAsText(result.fileBlob)
+            })
+            .catch(err => console.error(err.error))
+          }
+        })
+      })
+      .catch(err => console.error(err.error))
   }
   isAuthenticated() {
     return !!this.getAccessTokenFromUrl()
@@ -40,24 +46,26 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        { this.isAuthenticated() ? (
+        <a href={this.props.authUrl}>Sign in with Dropbox</a>
+        {/* { this.isAuthenticated() ? (
           <ul>
             {this.state.files.map(file => (
-              <li key={file.name}>{file.name}</li>
+              <div key={file.name}>
+                <li >{`[${file.tag}] ${file.name}`}</li>
+                <p>{file.content}</p>
+              </div>
             ))}
           </ul>
         ) : (
-          <a href={getAuthUrl()}>Sign in with Dropbox</a>
-        )}
+          <a href={this.props.authUrl}>Sign in with Dropbox</a>
+        )} */}
       </div>
     )
   }
 }
 
 Login.propTypes = {
-  location: React.PropTypes.shape({
-    hash: React.PropTypes.string.isRequired,
-  }).isRequired,
+  authUrl: React.PropTypes.string.isRequired,
 }
 
 export default Login

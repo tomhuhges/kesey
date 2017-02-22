@@ -1,5 +1,4 @@
 import React from 'react'
-// import DocumentHead from 'react-helmet'
 
 const App = (props) => {
   const page = props.children
@@ -9,11 +8,6 @@ const App = (props) => {
     : 'homepage'
   return (
     <div>
-      {/* <DocumentHead link={[{
-          'rel': 'stylesheet',
-          'href': 'https://fonts.googleapis.com/css?family=Source+Code+Pro:200,400|Astloch'
-        }
-      ]}/> */}
       <div id="main" className={`page ${pageName}`}>
         <div className="container">
           {page}

@@ -34,3 +34,31 @@
 .cm-s-default .cm-comment {
   color: red;
 }
+
+.cm-header {
+  color: red!important;
+}
+
+.cm-variable-2 {
+  color: #999!important;
+}
+
+.cm-variable-3 {
+  color: #999!important
+}
+
+.cm-keyword {
+  color: pink!important
+}
+
+.cm-operator {
+  color: cyan!important
+}
+
+.cm-def {
+  color: red!important
+}
+
+.cm-string {
+  color: limegreen!important
+}

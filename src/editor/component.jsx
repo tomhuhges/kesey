@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactCodeMirror from 'react-codemirror'
+import { browserHistory } from 'react-router'
 import CodeMirror from '../../node_modules/codemirror/'
+import Header from './header/component'
 
 require('../../node_modules/codemirror/mode/jsx/jsx')
 require('../../node_modules/codemirror/mode/javascript/javascript')
@@ -24,7 +26,22 @@ class Editor extends React.Component {
       + ' War. As proposed highways break down through the stacked'
       + ' strata of centuries.'
       + ' \n\n\t— Ken Kesey, Sometimes A Great Notion',
+      options: {
+        mode: 'gfm',
+        indentWithTabs: true,
+        lineWrapping: true,
+        autofocus: true,
+        specialChars: /^>\s/,
+        specialCharPlaceholder: (char) => {
+          const span = document.createElement('span')
+          span.innerText = '▏ '
+          return span
+        },
+      },
     }
+  }
+  componentDidMount() {
+    browserHistory.push('/edit')
   }
   updateFile(value) {
     this.setState({ value })
@@ -32,16 +49,15 @@ class Editor extends React.Component {
   render() {
     const editor = 'editor'
     return (
-      <div className="mw9 pv6 center w-50 f4 lh-copy">
-        <ReactCodeMirror
-          {...this.state}
-          onChange={this.updateFile}
-          options={{
-            mode: 'gfm',
-            lineWrapping: true,
-          }}
-          ref={editor}
-        />
+      <div className="code mid-gray mh3">
+        <Header />
+        <div className="mw9 pv6 center w-50 f4 lh-copy">
+          <ReactCodeMirror
+            {...this.state}
+            onChange={this.updateFile}
+            ref={editor}
+          />
+        </div>
       </div>
     )
   }
