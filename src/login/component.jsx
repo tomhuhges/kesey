@@ -9,8 +9,6 @@ class Login extends React.Component {
       files: [],
     }
   }
-  componentDidMount() {
-  }
   getFiles() {
     const dbx = new Dropbox({ accessToken: this.getAccessTokenFromUrl() })
     const files = []

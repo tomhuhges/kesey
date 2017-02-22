@@ -12,13 +12,22 @@ class Kesey extends React.Component {
       accessToken: null,
     }
   }
-  componentDidMount() {
-    this.getAccessTokenFromUrl()
+  componentWillMount() {
+    console.log(this.getAccessTokenFromLocalStorage())
+    console.log(this.getAccessTokenFromUrl())
+    console.log(this.getAccessToken())
+    this.setState({ accessToken: this.getAccessToken() })
   }
   getAuthUrl() {
     const dbx = new Dropbox({ clientId })
-    const authUrl = dbx.getAuthenticationUrl('http://localhost:8080/edit')
+    const authUrl = dbx.getAuthenticationUrl('http://localhost:8080')
     return authUrl
+  }
+  getAccessToken() {
+    return this.getAccessTokenFromLocalStorage() || this.getAccessTokenFromUrl()
+  }
+  getAccessTokenFromLocalStorage() {
+    return localStorage.getItem('accessToken')
   }
   getAccessTokenFromUrl() {
     const params = {}
@@ -31,13 +40,12 @@ class Kesey extends React.Component {
         const param = parameter.split('=')
         params[param[0]] = param[1]
       })
+      localStorage.setItem('accessToken', params.access_token)
+      // this.setState({ accessToken: params.access_token })
     }
-    this.setState({ accessToken: params.access_token })
+    return params.access_token
   }
   isAuthenticated() {
-    if (this.state.accessToken) {
-      browserHistory.push('/edit')
-    }
     return this.state.accessToken
   }
   render() {
