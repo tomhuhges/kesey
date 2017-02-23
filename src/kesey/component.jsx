@@ -10,16 +10,28 @@ class Kesey extends React.Component {
     super(props)
     this.state = {
       accessToken: null,
+      currentFile: null,
     }
   }
   componentWillMount() {
     const hash = this.props.location.hash
     const accessToken = localstorage.getAccessToken() || dropbox.getAccessToken(hash)
-    this.setState({ accessToken })
-    dropbox.getUserAccount(accessToken)
-      .then(response => fbase.saveUser(response))
-    if (!fbase.userExists(localstorage.getAccountId())) {
-      dropbox.uploadFile('../../public/Welcome.md')
+    const currentFile = localstorage.getCurrentFile()
+    const accountId = localstorage.getAccountId()
+    this.setState({ accessToken, currentFile })
+    if (accountId) {
+      fbase.userIsNew(accountId)
+        .then((isNew) => {
+          if (!isNew) {
+            dropbox.uploadWelcomeFile(accessToken)
+              .then((file) => {
+                this.setState({ currentFile: file.path_display })
+                localStorage.setItem('currentFile', file.path_display)
+              })
+          }
+        })
+      dropbox.getUserAccount(accessToken)
+        .then(response => fbase.saveUser(response))
     }
   }
   isAuthenticated() {
@@ -29,7 +41,10 @@ class Kesey extends React.Component {
     return (
       <div>
         { this.isAuthenticated() ? (
-          <Editor accessToken={this.state.accessToken} />
+          <Editor
+            accessToken={this.state.accessToken}
+            currentFile={this.state.currentFile}
+          />
         ) : (
           <Homepage authUrl={dropbox.getAuthUrl()} />
         )}

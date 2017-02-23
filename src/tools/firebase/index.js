@@ -47,22 +47,27 @@ const createValidFirebaseObject = (userInfo) => {
   return validUserInfo
 }
 
-const userExists = (accountId) => {
-  const users = firebase.database().ref(`users/${accountId}`)
+const userIsNew = (accountId) => {
+  const users = firebase.database().ref('users')
   return users.once('value')
-    .then(snapshot => snapshot.val().username)
+    .then((snapshot) => {
+      if (snapshot.val()[accountId]) {
+        return false
+      }
+      return true
+    })
+    .catch(err => console.error(err))
 }
 
 const saveUser = (userInfo) => {
   const validUserInfo = createValidFirebaseObject(userInfo)
-  console.log(validUserInfo)
   const users = firebase.database().ref('users')
   users.child(validUserInfo.accountId).set(validUserInfo)
     .catch(err => console.log(err))
 }
 
 const fbase = {
-  userExists,
+  userIsNew,
   saveUser,
 }
 

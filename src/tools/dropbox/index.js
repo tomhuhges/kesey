@@ -21,6 +21,37 @@ const getAccessToken = (urlHash) => {
   return userData.access_token
 }
 
+const getWelcomeFileContent = path =>
+  fetch(path)
+    .then(response => response.blob())
+    .catch(err => console.error(err))
+
+const getFileCommitInfo = (path) => {
+  const commitInfo = {
+    path: '/Welcome.md',
+    mode: {
+      '.tag': 'add',
+    },
+    autorename: true,
+    mute: false,
+  }
+  return getWelcomeFileContent(path)
+    .then((blob) => {
+      commitInfo.contents = blob
+      return commitInfo
+    })
+    .catch(err => console.error(err))
+}
+
+const uploadWelcomeFile = accessToken =>
+  getFileCommitInfo('../../../public/Welcome.md')
+    .then((response) => {
+      const dbx = new Dropbox({ accessToken })
+      return dbx.filesUpload(response)
+        .then(metadata => metadata)
+        .catch(err => console.error(err))
+    })
+
 const getAllFiles = accessToken =>
   new Promise((resolve, reject) => {
     const dbx = new Dropbox({ accessToken })
@@ -63,6 +94,7 @@ const getUserAccount = accessToken =>
 const dropbox = {
   getAuthUrl,
   getAccessToken,
+  uploadWelcomeFile,
   getAllFiles,
   getFileContent,
   getUserAccount,

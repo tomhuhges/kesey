@@ -8,9 +8,13 @@ const getAccountId = () => {
   return userData ? userData.account_id : null
 }
 
+const getCurrentFile = () =>
+  localStorage.getItem('currentFile')
+
 const localstorage = {
   getAccountId,
   getAccessToken,
+  getCurrentFile,
 }
 
 export default localstorage

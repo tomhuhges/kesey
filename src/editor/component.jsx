@@ -25,11 +25,16 @@ class Editor extends React.Component {
       },
     }
   }
-  componentDidMount() {
+  componentWillMount() {
     browserHistory.push('/edit')
-    if (this.props.accessToken) {
-      dropbox.getFileContent('/Welcome.md', this.props.accessToken)
-        .then(response => this.setState({ value: response, isLoading: false }))
+  }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.currentFile) {
+      dropbox.getFileContent(nextProps.currentFile, this.props.accessToken)
+        .then(response => this.setState({
+          value: response,
+          isLoading: false,
+        }, browserHistory.push(`/edit${this.props.currentFile}`)))
         .catch(err => console.error(err.error))
     }
   }
@@ -40,10 +45,11 @@ class Editor extends React.Component {
     const editor = 'editor'
     return (
       <div className="code mid-gray mh3">
-        <Header />
+        <Header currentFile={this.props.currentFile} />
         <div className="mw9 pv6 center w-50 f4 lh-copy">
           {this.state.isLoading ? (
             <div className="w-100 h-100 flex justify-center items-center">
+              <p>Setting up your workspace...</p>
               <img src="http://25.media.tumblr.com/4abad145cfeca409f3f76cac7e9393de/tumblr_mq50y4zfz71szhoyto1_400.gif" alt="" />
             </div>
           ) : (
@@ -59,8 +65,13 @@ class Editor extends React.Component {
   }
 }
 
+Editor.defaultProps = {
+  currentFile: '',
+}
+
 Editor.propTypes = {
   accessToken: React.PropTypes.string.isRequired,
+  currentFile: React.PropTypes.string,
 }
 
 export default Editor
