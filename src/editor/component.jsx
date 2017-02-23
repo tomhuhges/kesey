@@ -28,7 +28,7 @@ class Editor extends React.Component {
   componentDidMount() {
     browserHistory.push('/edit')
     if (this.props.accessToken) {
-      dropbox.getFileContent('/Sample.md', this.props.accessToken)
+      dropbox.getFileContent('/Welcome.md', this.props.accessToken)
         .then(response => this.setState({ value: response, isLoading: false }))
         .catch(err => console.error(err.error))
     }
@@ -43,7 +43,9 @@ class Editor extends React.Component {
         <Header />
         <div className="mw9 pv6 center w-50 f4 lh-copy">
           {this.state.isLoading ? (
-            <img src="http://saltandlighttv.org/images/loading_dots.gif" alt="" />
+            <div className="w-100 h-100 flex justify-center items-center">
+              <img src="http://vignette4.wikia.nocookie.net/robloxpokemonbrickbronze/images/0/00/Bulbasaur_XY.gif/revision/latest?cb=20151229045749" alt="" />
+            </div>
           ) : (
             <ReactCodeMirror
               {...this.state}

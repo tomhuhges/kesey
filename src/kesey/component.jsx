@@ -13,24 +13,8 @@ class Kesey extends React.Component {
     }
   }
   componentWillMount() {
-    this.setState({ accessToken: this.getAccessToken() })
-  }
-  getAccessToken() {
-    return localstorage.getAccessToken() || this.getAccessTokenFromUrl()
-  }
-  getAccessTokenFromUrl() {
-    const userData = {}
-    let hash = this.props.location.hash
-    if (hash) {
-      if (hash[0] === '#') hash = hash.substring(1)
-      hash.split('&').forEach((parameter) => {
-        const param = parameter.split('=')
-        // replace %3A with :
-        userData[param[0]] = param[1].replace(/%3A/g, ':')
-      })
-      localStorage.setItem('userData', JSON.stringify(userData))
-    }
-    return userData.access_token
+    const accessToken = localstorage.getAccessToken() || dropbox.getAccessToken()
+    this.setState({ accessToken })
   }
   isAuthenticated() {
     return this.state.accessToken
