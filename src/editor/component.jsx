@@ -44,7 +44,7 @@ class Editor extends React.Component {
         <div className="mw9 pv6 center w-50 f4 lh-copy">
           {this.state.isLoading ? (
             <div className="w-100 h-100 flex justify-center items-center">
-              <img src="http://vignette4.wikia.nocookie.net/robloxpokemonbrickbronze/images/0/00/Bulbasaur_XY.gif/revision/latest?cb=20151229045749" alt="" />
+              <img src="http://25.media.tumblr.com/4abad145cfeca409f3f76cac7e9393de/tumblr_mq50y4zfz71szhoyto1_400.gif" alt="" />
             </div>
           ) : (
             <ReactCodeMirror

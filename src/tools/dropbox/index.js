@@ -52,11 +52,20 @@ const getFileContent = (path, accessToken) =>
       .catch(err => console.error(err.error))
   })
 
+const getUserAccount = accessToken =>
+  new Promise((resolve, reject) => {
+    const dbx = new Dropbox({ accessToken })
+    dbx.usersGetCurrentAccount()
+      .then(result => resolve(result))
+      .catch(err => reject(console.error(err.error)))
+  })
+
 const dropbox = {
   getAuthUrl,
   getAccessToken,
   getAllFiles,
   getFileContent,
+  getUserAccount,
 }
 
 export default dropbox

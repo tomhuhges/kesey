@@ -1,6 +1,6 @@
 import React from 'react'
-import Dropbox from 'dropbox'
 import dropbox from '../tools/dropbox'
+import fbase from '../tools/firebase'
 import localstorage from '../tools/localstorage'
 import Homepage from '../homepage/component'
 import Editor from '../editor/component'
@@ -13,8 +13,14 @@ class Kesey extends React.Component {
     }
   }
   componentWillMount() {
-    const accessToken = localstorage.getAccessToken() || dropbox.getAccessToken()
+    const hash = this.props.location.hash
+    const accessToken = localstorage.getAccessToken() || dropbox.getAccessToken(hash)
     this.setState({ accessToken })
+    dropbox.getUserAccount(accessToken)
+      .then(response => fbase.saveUser(response))
+    if (!fbase.userExists(localstorage.getAccountId())) {
+      dropbox.uploadFile('../../public/Welcome.md')
+    }
   }
   isAuthenticated() {
     return this.state.accessToken
