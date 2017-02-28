@@ -22,7 +22,7 @@ class Kesey extends React.Component {
     if (accountId) {
       fbase.userIsNew(accountId)
         .then((isNew) => {
-          if (!isNew) {
+          if (isNew) {
             dropbox.uploadWelcomeFile(accessToken)
               .then((file) => {
                 this.setState({ currentFile: file.path_display })

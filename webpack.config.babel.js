@@ -19,6 +19,7 @@ const defaults = {
   },
   output: {
     path: paths.dist,
+    publicPath: '/',
   },
   module: {
     preLoaders: [

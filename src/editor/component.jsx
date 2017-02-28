@@ -26,7 +26,14 @@ class Editor extends React.Component {
     }
   }
   componentWillMount() {
-    browserHistory.push('/edit')
+    console.log(this.props.params.file)
+    if (this.props.params.file) {
+      dropbox.getFileContent(`${this.props.params.file}.md`, this.props.accessToken)
+        .then(fileContent => this.setState({ value: fileContent, isLoading: false }))
+        .catch(err => console.error(err.error))
+    } else {
+      // browserHistory.push('/edit')
+    }
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentFile) {
@@ -66,12 +73,17 @@ class Editor extends React.Component {
 }
 
 Editor.defaultProps = {
+  // accessToken: '',
   currentFile: '',
+  params: {},
 }
 
 Editor.propTypes = {
   accessToken: React.PropTypes.string.isRequired,
   currentFile: React.PropTypes.string,
+  params: React.PropTypes.shape({
+    file: React.PropTypes.string,
+  }),
 }
 
 export default Editor
