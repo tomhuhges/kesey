@@ -1,49 +1,86 @@
-import webpack from 'webpack'
-import ExtractTextPlugin from 'extract-text-webpack-plugin'
-import CleanWebpackPlugin from 'clean-webpack-plugin'
-import CopyWebpackPlugin from 'copy-webpack-plugin'
+const path = require('path');
+const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
-export default function prod(options) {
-  return {
-    output: {
-      // publicPath: '',
-      filename: '[name].[chunkhash].js',
-    },
-    module: {
-      loaders: [
-        {
-          test: /\.css$/,
-          loader: ExtractTextPlugin.extract('style', 'css'),
-          include: options.paths.css,
-        },
-      ],
-    },
-    plugins: [
-      new CleanWebpackPlugin([options.paths.dist], {
-        root: process.cwd(),
-      }),
-      new webpack.DefinePlugin({
-        'process.env': {
-          NODE_ENV: JSON.stringify('production'),
-        },
-      }),
-      new webpack.optimize.UglifyJsPlugin({
-        comments: false,
-        compress: {
-          warnings: false,
-        },
-        mangle: {
-          except: ['webpackJsonp'],
-        },
-      }),
-      new ExtractTextPlugin('[name].[chunkhash].css'),
-      new CopyWebpackPlugin(
-        [
-          // { from: 'public', to: 'public' },
-          { from: 'CNAME' },
-        ],
-        { ignore: ['*.DS_Store', '*.png', '*.gif', '*.jpg', '*.jpeg'] },
-      ),
+module.exports = {
+  devtool: 'cheap-module-eval-source-map',
+  entry: {
+    app: './src/index',
+    vendor: [
+      'react',
+      'react-dom',
+      'redux',
+      'react-redux',
+      'react-router',
+      'codemirror',
     ],
-  }
-}
+  },
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: '[name].[chunkhash].js',
+    publicPath: './',
+  },
+  module: {
+    loaders: [{
+      test: /\.jsx?$/,
+      loaders: ['babel'],
+      include: path.join(__dirname, 'src'),
+    },
+    {
+      test: /\.css$/,
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
+      include: path.join(__dirname, 'src/css'),
+    },
+    {
+      test: /\.svg$/,
+      loader: 'file-loader',
+      include: path.join(__dirname, 'public'),
+    }],
+  },
+  plugins: [
+    new CleanWebpackPlugin(['dist'], {
+      root: process.cwd(),
+    }),
+    new HtmlWebpackPlugin({
+      template: 'index.ejs',
+    }),
+    new ExtractTextPlugin('style.[contenthash].css'),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      comments: false,
+      compress: {
+        warnings: false,
+        unused: true,
+        dead_code: true,
+      },
+      mangle: {
+        except: ['webpackJsonp'],
+      },
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'vendor.[chunkhash].js',
+      minChunks: Infinity,
+    }),
+    new CompressionPlugin({
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0,
+    }),
+  ],
+  resolve: {
+    extensions: ['', '.js', '.jsx', '.css'],
+    alias: {
+      react: 'preact-compat',
+      'react-dom': 'preact-compat',
+    },
+    modulesDirectories: [
+      'node_modules',
+    ],
+  },
+};

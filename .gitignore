@@ -1,7 +1,5 @@
-**/*/.DS_Store
 node_modules
-npm.debug.log
-coverage
-dist
-CNAME
-src/tools/dropbox/keys
+npm-debug.log
+.DS_Store
+build
+src/services/firebase/config.js

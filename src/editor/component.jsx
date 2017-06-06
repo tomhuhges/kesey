@@ -1,89 +1,95 @@
-import React from 'react'
-import ReactCodeMirror from 'react-codemirror'
-import { browserHistory } from 'react-router'
-import Dropbox from 'dropbox'
-import dropbox from '../tools/dropbox'
-import CodeMirror from '../../node_modules/codemirror/'
-import Header from './header/component'
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import EditorHeader from '../EditorHeader/component';
+import EditorMenu from '../EditorMenu/component';
+import EditorMain from '../EditorMain/component';
+import EditorFooter from '../EditorFooter/component';
+import * as actions from './actions';
+import styles from './styles';
 
-require('../../node_modules/codemirror/mode/jsx/jsx')
-require('../../node_modules/codemirror/mode/javascript/javascript')
-require('../../node_modules/codemirror/mode/gfm/gfm')
-
-class Editor extends React.Component {
-  constructor(props) {
-    super(props)
-    this.updateFile = this.updateFile.bind(this)
-    this.state = {
-      value: '',
-      isLoading: true,
-      options: {
-        mode: 'gfm',
-        indentWithTabs: true,
-        lineWrapping: true,
-        autofocus: true,
-      },
-    }
-  }
-  componentWillMount() {
-    console.log(this.props.params.file)
-    if (this.props.params.file) {
-      dropbox.getFileContent(`${this.props.params.file}.md`, this.props.accessToken)
-        .then(fileContent => this.setState({ value: fileContent, isLoading: false }))
-        .catch(err => console.error(err.error))
-    } else {
-      // browserHistory.push('/edit')
-    }
-  }
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.currentFile) {
-      dropbox.getFileContent(nextProps.currentFile, this.props.accessToken)
-        .then(fileContent => this.setState({ value: fileContent, isLoading: false }))
-        .catch(err => console.error(err.error))
-    }
-  }
-  updateFile(value) {
-    this.setState({ value })
+class Editor extends Component {
+  componentDidMount() {
+    const { getFolder, currentFolder, getFile, currentFile } = this.props;
+    getFolder(currentFolder)
+      .then(() => getFile(currentFile));
   }
   render() {
-    const editor = 'editor'
+    const {
+      getFolder,
+      folderIsLoading,
+      currentFolder,
+      folder,
+      getFile,
+      createFile,
+      fileIsLoading,
+      currentFile,
+      content,
+      isTyping,
+      autosaveMessage,
+      logout,
+      toggleMenu,
+      menuOpen,
+    } = this.props;
     return (
-      <div className="code mid-gray mh3">
-        <Header currentFile={this.props.currentFile} />
-        <div className="mw9 pv6 center w-50 f4 lh-copy">
-          {this.state.isLoading ? (
-            <div className="w-100 h-100 flex justify-center items-center">
-              <p>Setting up your workspace...</p>
-              <img
-                src="http://25.media.tumblr.com/4abad145cfeca409f3f76cac7e9393de/tumblr_mq50y4zfz71szhoyto1_400.gif"
-                alt=""
-              />
-            </div>
-          ) : (
-            <ReactCodeMirror
-              {...this.state}
-              onChange={this.updateFile}
-              ref={editor}
-            />
-          )}
+      <div className={menuOpen ? `${styles.container} ${styles.menuOpen}` : styles.container}>
+        <EditorMenu
+          getFolder={getFolder}
+          folderIsLoading={folderIsLoading}
+          currentFolder={currentFolder}
+          folder={folder}
+          getFile={getFile}
+          createFile={createFile}
+          currentFile={currentFile}
+          logout={logout}
+          menuOpen={menuOpen}
+        />
+        <div className={styles.innerContainer}>
+          <EditorHeader
+            toggleMenu={toggleMenu}
+            filename={currentFile.name}
+          />
+          <EditorMain
+            fileIsLoading={fileIsLoading}
+            content={content}
+            isTyping={isTyping}
+            menuOpen={menuOpen}
+          />
+          <EditorFooter
+            message={autosaveMessage}
+            content={content}
+          />
         </div>
       </div>
-    )
+    );
   }
-}
-
-Editor.defaultProps = {
-  // accessToken: '',
-  currentFile: '',
-  params: {},
 }
 
 Editor.propTypes = {
-  accessToken: React.PropTypes.string.isRequired,
-  currentFile: React.PropTypes.string,
-  params: React.PropTypes.shape({
-    file: React.PropTypes.string,
-  }),
-}
+  getFolder: PropTypes.func.isRequired,
+  folderIsLoading: PropTypes.bool.isRequired,
+  currentFolder: PropTypes.string.isRequired,
+  folder: PropTypes.array.isRequired,
+  getFile: PropTypes.func.isRequired,
+  createFile: PropTypes.func.isRequired,
+  fileIsLoading: PropTypes.bool.isRequired,
+  currentFile: PropTypes.object.isRequired,
+  content: PropTypes.string.isRequired,
+  isTyping: PropTypes.func.isRequired,
+  autosaveMessage: PropTypes.string.isRequired,
+  logout: PropTypes.func.isRequired,
+  toggleMenu: PropTypes.func.isRequired,
+  menuOpen: PropTypes.bool.isRequired,
+};
 
-export default Editor
+const mapStateToProps = state => ({
+  folderIsLoading: state.editor.folderIsLoading,
+  currentFolder: state.editor.currentFolder,
+  folder: state.editor.folder,
+  fileIsLoading: state.editor.fileIsLoading,
+  currentFile: state.editor.currentFile,
+  content: state.editor.content,
+  autosaveMessage: state.editor.autosaveMessage,
+  menuOpen: state.editor.menuOpen,
+});
+
+export default connect(mapStateToProps, actions)(Editor);

@@ -1,23 +1,20 @@
-import React from 'react'
-import { browserHistory } from 'react-router'
-import Login from '../login/component'
+import React from 'react';
+import dropbox from '../services/dropbox';
+import styles from './styles';
 
 class Homepage extends React.Component {
-  componentDidMount() {
-    browserHistory.push('')
-  }
   render() {
     return (
-      <div className="code mid-gray mh3">
-        Kesey
-        <Login authUrl={this.props.authUrl} />
+      <div className={styles.container}>
+        <div className={styles.inner}>
+          <h1 className={styles.h1}>Kesey</h1>
+          <a href={dropbox.getAuthUrl()}>
+            <button className={styles.button}>Sign in with Dropbox</button>
+          </a>
+        </div>
       </div>
-    )
+    );
   }
 }
 
-Homepage.propTypes = {
-  authUrl: React.PropTypes.string.isRequired,
-}
-
-export default Homepage
+export default Homepage;

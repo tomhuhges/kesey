@@ -1,0 +1,113 @@
+@import '../../node_modules/tachyons/css/tachyons.css';
+@import '../../node_modules/codemirror/lib/codemirror.css';
+* {
+  outline: none;
+}
+
+body {
+  margin: 0;
+  background: #1a1a1a;
+}
+
+.CodeMirror {
+  height: auto;
+  width: 100%;
+  background: inherit;
+}
+
+.CodeMirror-sizer {
+  box-sizing: border-box;
+  min-height: 80vh!important;
+}
+
+.CodeMirror pre {
+  font-family: 'Source Code Pro', monospace;
+  color: #999999;
+  font-size: 20px;
+  line-height: 1.5em;
+}
+
+.CodeMirror-cursor {
+  border-left: #1bc7fb 4px solid;
+}
+
+.CodeMirror-selected {
+  background: #212121!important;
+}
+
+.CodeMirror-selected:focus {
+  background: #212121;
+}
+
+.cm-s-default .cm-comment {
+  color: #56e3a6;
+}
+
+.cm-s-default .cm-quote {
+  color: #56e3a6;
+}
+
+.cm-header {
+  color: #56e3a6!important;
+}
+
+.cm-variable-2 {
+  color: #999!important;
+}
+
+.cm-variable-3 {
+  color: #999!important
+}
+
+.cm-keyword {
+  color: pink!important
+}
+
+.cm-operator {
+  color: cyan!important
+}
+
+.cm-def {
+  color: red!important
+}
+
+.cm-string {
+  color: limegreen!important
+}
+
+.cm-strong {
+  color: white!important
+}
+
+.mh-100 {
+  min-height: 100vh;
+}
+
+.minw7 {
+  min-width: 48rem;
+}
+
+.left--20 {
+  left: -20%;
+}
+
+.ml-20 {
+  margin-left: 20%;
+}
+
+.bg-dark-gray {
+  background: #1a1a1a;
+}
+
+.bg-mid-gray {
+  background: #212121;
+}
+
+.menu {
+  transition: left 0.3s;
+  padding: 82px 0;
+}
+
+.editor {
+  transition: margin-left 0.3s;
+}

@@ -1,63 +1,31 @@
-[![travis](https://travis-ci.org/tomhuhges/kesey.svg?branch=master "Travis badge")](https://travis-ci.org/tomhuhges/kesey)
-[![codecov](https://codecov.io/gh/tomhuhges/kesey/branch/master/graph/badge.svg "Codecov badge")](https://codecov.io/gh/tomhuhges/kesey)
+React Hot Mocha Boilerplate Optimized
+=====================================
 
+Fork of [react-hot-boilerplate](https://github.com/gaearon/react-hot-boilerplate) with testing and production optimizations.
 
-# kesey
+### Includes:
 
-[`kesey`](http://kesey.co/) (/ˈkiːziː/) is a sexy markdown notepad for the browser  
+##### Testing
 
-**it will:**  
-- recognise markdown as you type and style text accordingly
-	- headings (1-6)
-	- strong, emphasis
-	- bullet lists, numbered lists
-	- block quotes
-	- links, images
-	- inline code, code blocks
-	- page break
-- auto-save your documents as .md files in dropbox
-- load any dropbox .md document  
+- Mocha
+- Chai
+- Enzyme
+- Sinon
+- jsdom
 
-**it will need:**  
-- a minimalist setup that allows users to simply start typing as soon as they load the web app
-- regex + event handling to style text as the user types
-- integration with the [dropbox js sdk][1]
-	- to create a new folder in the user's dropbox
-	- to auto save files at regular intervals
-	- to load .md files
-- section to list files in dropbox/manage dropbox permissions
-- contact
+##### Code Coverage
 
-**it may**
-- include a markdown guide
-- include day/night mode
+- Istanbul
+- nyc
 
-----
+##### Optimizations
 
-### references
+- Preact
+- Dedupe
+- UglifyJs
+- vendor chunking
+- gzipping
 
-[markdown cheatsheet][2]  
-[regexr][3]  
-[contenteditable elements][4]  
+##### Linting
 
-drawing inspiration from:  
-- the [ulysses desktop app][5]
-- medium's [story editor][6]
-
-----
-
-### wireframe
-
-**sheet view**  
-
-![][image-1]
-
-
-[1]:	https://github.com/dropbox/dropbox-sdk-js
-[2]:	https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
-[3]:	http://regexr.com/
-[4]:	https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Editable_content
-[5]:	http://www.ulyssesapp.com/
-[6]:	https://medium.com/new-story
-
-[image-1]:	https://github.com/tomhuhges/kesey/blob/master/public/desktop.png "desktop sheet view"
+- Airbnb style guide

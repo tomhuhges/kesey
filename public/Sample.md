@@ -1,3 +1,0 @@
-Time overlaps itself. A breath breathed from a passing breeze is not the whole wind, neither is it just the last of what has passed and the first of what will come, but is more - let me see - more like a single point plucked on a single strand of a vast spider web of winds, setting the whole scene atingle. That way; it overlaps ... As prehistoric ferns grow from bathtub planters. As a shiny new ax, taking a swing at somebody's next year's split-level pinewood pad, bites all the way to the Civil War. As proposed highways break down through the stacked strata of centuries.
-
-	— Ken Kesey, Sometimes A Great Notion

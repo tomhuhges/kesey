@@ -1,0 +1,10 @@
+{
+  "reporter"   : ["text", "text-summary", "lcov", "html"],
+  "include"    : ["src/**/*.jsx"],
+  "exclude"    : ["src/index.jsx"],
+  "extension"  : [".jsx"],
+  "require"    : ["babel-register", "./test/setup.js", "./test/ignore.js"],
+  "sourceMap"  : false,
+  "instrument" : false,
+  "all"        : true
+}
