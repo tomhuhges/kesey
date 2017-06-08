@@ -20,11 +20,11 @@ class EditorMenu extends Component {
     } = this.props;
     return (
       <div className={menuOpen ? styles.container : `${styles.container} ${styles.closed}`}>
-        <button
-          className={styles.newFile}
-          onClick={() => createFile(currentFolder)}
-        >New File</button>
         <div>
+          <button
+            className={styles.newFile}
+            onClick={() => createFile(currentFolder)}
+          >New File</button>
           <div className={styles.directoryContainer}>
             <div className={styles.directory}>
               {currentFolder === '' ? (
@@ -40,6 +40,8 @@ class EditorMenu extends Component {
               )}
             </div>
           </div>
+        </div>
+        <div className={styles.folder}>
           { folderIsLoading ? (
             <Loading />
           ) : (

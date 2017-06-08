@@ -3,7 +3,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const express = require('express');
-const jwt = require('jsonwebtoken');
 const config = require('./webpack.config');
 
 const app = express();
