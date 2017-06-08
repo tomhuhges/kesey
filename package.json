@@ -6,9 +6,9 @@
     "start": "node server.js",
     "lint": "eslint src",
     "build": "NODE_ENV=production webpack --config webpack.config.prod.js -p",
+    "heroku-postbuild": "webpack -p --config ./webpack.config.prod.js --progress",
     "test": "NODE_ENV=test nyc mocha test/**/*.test.jsx --recursive --require test/setup.js test/ignore.js",
-    "deploy": "npm run build && git add . && git cam 'update' && git push heroku master",
-    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
+    "deploy": "npm run build && git add . && git cam 'update' && git push heroku master"
   },
   "repository": {
     "type": "git",
