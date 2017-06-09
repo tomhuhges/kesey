@@ -67,6 +67,7 @@
     "webpack-hot-middleware": "^2.10.0"
   },
   "dependencies": {
+    "babel": "^6.23.0",
     "clean-webpack-plugin": "^0.1.16",
     "code-mirror-themes": "^1.0.0",
     "codemirror": "^5.25.2",
