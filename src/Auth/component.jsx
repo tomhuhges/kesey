@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import Editor from '../Editor/component.jsx';
+import Editor from '../Editor/component';
 import Homepage from '../Homepage/component';
 import * as actions from './actions';
 import auth from '../services/auth';
