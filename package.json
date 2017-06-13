@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/gaearon/react-hot-boilerplate",
   "devDependencies": {
+    "react-typist": "^1.1.1"
   },
   "dependencies": {
     "babel-eslint": "^4.1.3",

@@ -1,5 +1,8 @@
 @import '../../node_modules/tachyons/css/tachyons.css';
+@import '../../node_modules/tachyons/src/_heights.css';
 @import '../../node_modules/codemirror/lib/codemirror.css';
+@import '../../node_modules/react-typist/dist/Typist.css';
+@import './HeroAnimation.css';
 * {
   outline: none;
 }
@@ -79,8 +82,9 @@ body {
   color: white!important
 }
 
-.mh-100 {
-  min-height: 100vh;
+.mw-1080 {
+  max-width: 1080px;
+  margin: 0 auto;
 }
 
 .minw7 {
@@ -101,6 +105,26 @@ body {
 
 .bg-mid-gray {
   background: #212121;
+}
+
+.sans-serif {
+  font-family: 'Proxima Nova';
+}
+
+.blue {
+  color: #4353ff;
+}
+
+.bg-blue {
+  background: linear-gradient(to bottom right, #4353ff, #3743bf);
+}
+
+.neon-green {
+  color: #83ffc8;
+}
+
+.bg-neon-green {
+  background-color: #83ffc8;
 }
 
 .menu {

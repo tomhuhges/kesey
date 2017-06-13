@@ -27,16 +27,6 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(express.static(path.join(__dirname, 'dist')));
 }
 
-// app.post('/auth/getToken/', (req, res) => {
-//   jwt.sign(req.body, 'secret', (err, token) => {
-//     if (err) res.sendStatus(403);
-//     else {
-//       res.status(200)
-//         .json({ token });
-//     }
-//   });
-// });
-
 app.set('view engine', 'ejs');
 
 app.get('*', (req, res) => {

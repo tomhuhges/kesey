@@ -1,5 +1,5 @@
 const styles = {
-  container: 'menu sans-serif flex flex-column mh-100 w-20 fl fixed bg-mid-gray br b--mid-gray bb2 left-0 f6',
+  container: 'menu sans-serif flex flex-column min-vh-100 w-20 fl fixed bg-mid-gray br b--mid-gray bb2 left-0 f6',
   closed: 'left--20',
   newFile: 'block w-100 pa4 tc bn bg-blue white flex justify-center items-center pointer',
   directoryContainer: 'bb b--dark-gray bb1',

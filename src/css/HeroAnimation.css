@@ -1,0 +1,167 @@
+.hero__copy {
+  animation: fade-in 1s ease-out;
+}
+
+.hero-animation__container {
+  min-width: 540px;
+  height: 300px;
+  animation: fade-in 1s ease-out;
+}
+
+.hero-animation__container .screen {
+  position: absolute;
+  width: 70%;
+  left: 25%;
+  height: 100%;
+  opacity: 0.9;
+  transform: scaleX(0.8) skew(20deg) rotateZ(20deg) translateY(75px);
+  border-radius: 5px;
+  background: linear-gradient(to bottom, rgba(30, 100, 80, 0.7), #1a1a1a);
+  box-shadow: inset 0px 0px 50px rgba(26, 26, 26, 0.5);
+  transition: transform 0.5s ease-out;
+}
+
+.hero-animation__container .screen:hover {
+  transform: scaleX(0.8) skew(20deg) rotateZ(20deg) translateY(70px);
+}
+
+.hero-animation__container .screen.left {
+  width: 60%;
+  height: 75%;
+  left: 50%;
+  top: 30%;
+  opacity: 0.1;
+  background: linear-gradient(to bottom, #37dc93, rgba(26, 26, 26, 0));
+  box-shadow: inset 0px 0px 50px rgba(26, 26, 26, 0.5);
+}
+
+.hero-animation__container .screen.right {
+  width: 60%;
+  height: 50%;
+  left: 20%;
+  top: 30%;
+  opacity: 0.2;
+  background: linear-gradient(to bottom, #27bf7c, rgba(26, 26, 26, 0));
+}
+
+.hero-animation__container .screen__left {
+  background: linear-gradient(to bottom, #1a8057, #1a1a1a);
+  height: 100%;
+  width: 20%;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+}
+
+.hero-animation__container .screen__top {
+  width: 100%;
+  height: 15%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 4% 0;
+  display: flex;
+}
+
+.hero-animation__container .screen__buttons {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-animation__container .screen__button {
+  width: 8%;
+  height: 50%;
+  margin: 0 2px;
+  background: #83ffc8;
+  border-radius: 100%;
+}
+
+.hero-animation__container .screen__searchbar {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-animation__container .screen__bar {
+  width: 40%;
+  height: 70%;
+  background: #83ffc8;
+  border-radius: 3px;
+}
+
+.hero-animation__container .screen__text {
+  width: 70%;
+  position: absolute;
+  top: 20%;
+  right: 0;
+  font-family: 'Source code pro';
+  font-size: 20px;
+  text-align: left;
+  color: #83ffc8;
+}
+
+.hero-animation__container .keyboard {
+  position: absolute;
+  width: 50%;
+  height: 30%;
+  transform: skew(66.6deg) rotate(75deg) scaleX(0.2) scale(1.5);
+  top: 120%;
+  left: 25%;
+  animation: float 3s infinite ease-in-out;
+}
+
+.hero-animation__container .line {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 30%;
+  margin-bottom: 3%;
+}
+
+.hero-animation__container .key {
+  width: 20%;
+  height: 100%;
+  border-radius: 5px;
+  margin: 1.5%;
+  opacity: 0.8;
+  background: linear-gradient(to bottom right, #59e8a9, #3d9073);
+}
+
+.hero-animation__container .key:hover {
+  transform: translateX(2px) translateY(2px);
+  background: #83ffc8;
+  opacity: 1;
+}
+
+.hero-animation__container .key.space {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+@keyframes float {
+  0% {
+    transform: skew(66.6deg) rotate(75deg) scaleX(0.2) scale(1.5) translateY(0) translateX(0);
+  }
+  50% {
+    transform: skew(66.6deg) rotate(75deg) scaleX(0.2) scale(1.5) translateY(10px) translateX(10px);
+  }
+  100% {
+    transform: skew(66.6deg) rotate(75deg) scaleX(0.2) scale(1.5) translateY(0) translateX(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@media (min-width: 900px) {}
