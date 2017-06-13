@@ -3,6 +3,18 @@
 @import '../../node_modules/codemirror/lib/codemirror.css';
 @import '../../node_modules/react-typist/dist/Typist.css';
 @import './HeroAnimation.css';
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('../assets/proxima-nova.woff2') format('woff2'), url('../assets/proxima-nova.woff') format('woff');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('../assets/proxima-nova-bold.woff2') format('woff2'), url('../assets/proxima-nova-bold.woff') format('woff');
+  font-weight: bold;
+}
+
 * {
   outline: none;
 }

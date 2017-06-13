@@ -31,12 +31,13 @@ module.exports = {
       include: path.join(__dirname, 'src/css'),
     },
     {
-      test: /\.svg$/,
-      loader: 'file-loader',
+      test: /\.(eot|svg|ttf|woff|woff2)$/,
+      loader: 'file?name=public/fonts/[name].[ext]',
+      include: path.join(__dirname, 'src/assets'),
     }],
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css'],
+    extensions: ['', '.js', '.jsx', '.css', 'svg'],
     modulesDirectories: [
       'node_modules',
     ],

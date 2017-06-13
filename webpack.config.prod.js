@@ -34,9 +34,9 @@ module.exports = {
       include: path.join(__dirname, 'src/css'),
     },
     {
-      test: /\.svg$/,
-      loader: 'file-loader',
-      include: path.join(__dirname, 'public'),
+      test: /\.(eot|svg|ttf|woff|woff2)$/,
+      loader: 'file?name=public/fonts/[name].[ext]',
+      include: path.join(__dirname, 'src/assets'),
     }],
   },
   plugins: [
