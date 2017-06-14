@@ -6,13 +6,19 @@
 @font-face {
   font-family: 'Proxima Nova';
   src: url('../assets/proxima-nova.woff2') format('woff2'), url('../assets/proxima-nova.woff') format('woff');
-  font-weight: normal;
+  font-weight: 400;
 }
 
 @font-face {
   font-family: 'Proxima Nova';
   src: url('../assets/proxima-nova-bold.woff2') format('woff2'), url('../assets/proxima-nova-bold.woff') format('woff');
-  font-weight: bold;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('../assets/proxima-nova-thin.woff2') format('woff2'), url('../assets/proxima-nova-thin.woff') format('woff');
+  font-weight: 100;
 }
 
 * {
@@ -22,6 +28,12 @@
 body {
   margin: 0;
   background: #1a1a1a;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .CodeMirror {
@@ -149,4 +161,20 @@ body {
 
 .editor {
   transition: margin-left 0.3s;
+}
+
+.border-left {
+  left: -8rem;
+  background: linear-gradient(to left, #212121, #1a1a1a);
+}
+
+.border-right {
+  right: -8rem;
+  background: linear-gradient(to right, #212121, #1a1a1a);
+}
+
+@media (min-width: 60em) {
+  .minh-500-l {
+    min-height: 500px;
+  }
 }

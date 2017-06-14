@@ -2,10 +2,20 @@
   animation: fade-in 1s ease-out;
 }
 
+.hero__coming-soon .container {
+  transition: transform 0.3s;
+}
+
+.hero__coming-soon:hover .container, .hero__coming-soon:focus .container {
+  transform: translateX(-100%);
+}
+
 .hero-animation__container {
-  min-width: 540px;
+  opacity: 0;
+  width: 540px;
   height: 300px;
-  animation: fade-in 1s ease-out;
+  animation: fade-in 1s ease-out 0.5s;
+  animation-fill-mode: forwards;
 }
 
 .hero-animation__container .screen {
@@ -164,4 +174,8 @@
   }
 }
 
-@media (min-width: 900px) {}
+@media (min-width: 60em) {
+  .hero {
+    padding-bottom: 12rem;
+  }
+}
