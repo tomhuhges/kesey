@@ -37,7 +37,7 @@ a {
 }
 
 div {
-  transition: background-color 0.5s, color 0.5s;
+  transition: background-color 0.5s, color 0.5s, box-shadow 0.5s;
 }
 
 .CodeMirror {
@@ -174,22 +174,20 @@ div {
   transition: margin-left 0.3s;
 }
 
-.border-left {
-  left: -8rem;
-  background: linear-gradient(to left, #eee, #f7f7f8);
+.bs-bottom {
+  box-shadow: 0 50px 100px #eee;
 }
 
-.border-left.night {
-  background: linear-gradient(to left, #212121, #1a1a1a);
+.bs-bottom.night {
+  box-shadow: 0 50px 100px #212121;
 }
 
-.border-right {
-  right: -8rem;
-  background: linear-gradient(to right, #eee, #f7f7f8);
+.bs-inset-bottom {
+  box-shadow: inset 0 -50px 100px #eee;
 }
 
-.border-right.night {
-  background: linear-gradient(to right, #212121, #1a1a1a);
+.bs-inset-bottom.night {
+  box-shadow: inset 0 -50px 100px #212121;
 }
 
 @media (min-width: 60em) {

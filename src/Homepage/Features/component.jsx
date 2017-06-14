@@ -5,12 +5,10 @@ import styles from './styles';
 
 class Features extends React.Component {
   render() {
-    const { name, featuresBg, text, featuresTitle, dropboxLogo } = this.props;
+    const { name, dropboxLogo } = this.props;
     return (
-      <div className={styles.container}>
-        <div className={`${styles.inner} ${featuresBg} ${text}`}>
-          <div className={`${styles.leftborder} ${name}`} />
-          <div className={`${styles.rightborder} ${name}`} />
+      <div className={`${styles.container} ${name}`}>
+        <div className={styles.inner}>
           <h3 className={styles.h3}>Features</h3>
           <Feature
             titleImg={dropboxLogo}

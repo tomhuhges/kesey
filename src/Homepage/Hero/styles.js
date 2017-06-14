@@ -1,5 +1,5 @@
 const styles = {
-  container: 'hero mv0 sans-serif minh-500-l relative z-1',
+  container: 'hero mv0 ph3 sans-serif minh-500-l relative z-1 bs-bottom',
   inner: 'mw-1080-l flex flex-column flex-row-l justify-between items-center items-start-l',
   copy: {
     container: 'hero__copy pb4 tl flex flex-column justify-start w-50-l order-1 order-0-l relative z-1',

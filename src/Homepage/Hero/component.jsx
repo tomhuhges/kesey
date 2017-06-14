@@ -8,9 +8,9 @@ import styles from './styles';
 
 class Hero extends React.Component {
   render() {
-    const { bg, text, highlight, herop, gdbutton } = this.props;
+    const { name, bg, text, highlight, herop, gdbutton } = this.props;
     return (
-      <div className={`${styles.container} ${bg} ${text}`}>
+      <div className={`${styles.container} ${bg} ${text} ${name}`}>
         <div className={styles.inner}>
           <div className={styles.copy.container}>
             <div>

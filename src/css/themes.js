@@ -8,7 +8,6 @@ export const dayTheme = {
   highlight: 'blue',
   herop: 'silver',
   gdbutton: 'bg-light-mid-gray',
-  featuresBg: 'bg-light-gray',
   featuresTitle: 'fw4 near-black',
   dropboxLogo: dropboxLogoBlack,
 };
@@ -20,7 +19,6 @@ export const nightTheme = {
   highlight: 'neon-green',
   herop: 'mid-gray',
   gdbutton: 'bg-dark-gray',
-  featuresBg: 'bg-mid-gray',
   featuresTitle: 'fw1 white',
   dropboxLogo: dropboxLogoWhite,
 };
