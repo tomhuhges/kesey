@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Feature from '../Feature/component';
-import dropboxLogo from '../../../src/assets/dropbox-logo.svg';
 import styles from './styles';
 
 class Features extends React.Component {
   render() {
-    const { name, featuresBg, text, featuresTitle } = this.props;
+    const { name, featuresBg, text, featuresTitle, dropboxLogo } = this.props;
     return (
       <div className={styles.container}>
         <div className={`${styles.inner} ${featuresBg} ${text}`}>

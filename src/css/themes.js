@@ -1,3 +1,6 @@
+import dropboxLogoWhite from '../assets/dropbox-logo.svg';
+import dropboxLogoBlack from '../assets/dropbox-logo-black.svg';
+
 export const dayTheme = {
   name: 'day',
   bg: 'bg-near-white',
@@ -7,6 +10,7 @@ export const dayTheme = {
   gdbutton: 'bg-light-mid-gray',
   featuresBg: 'bg-light-gray',
   featuresTitle: 'fw4 near-black',
+  dropboxLogo: dropboxLogoBlack,
 };
 
 export const nightTheme = {
@@ -18,4 +22,5 @@ export const nightTheme = {
   gdbutton: 'bg-dark-gray',
   featuresBg: 'bg-mid-gray',
   featuresTitle: 'fw1 white',
+  dropboxLogo: dropboxLogoWhite,
 };
