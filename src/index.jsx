@@ -15,8 +15,6 @@ const persistedState = {
   editor: localStorage.getItem('editor') ? Object.assign({}, defaultState, JSON.parse(localStorage.getItem('editor'))) : defaultState,
 };
 
-console.log(persistedState)
-
 const store = createStore(
   reducer,
   persistedState,
