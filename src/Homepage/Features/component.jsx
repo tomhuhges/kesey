@@ -9,6 +9,7 @@ class Features extends React.Component {
       <div className={styles.container}>
         <div className={styles.leftborder} />
         <div className={styles.rightborder} />
+        <h3 className={styles.h3}>Features</h3>
         <Feature
           titleImg={dropboxLogo}
           titleImgAlt="Dropbox Logo"
