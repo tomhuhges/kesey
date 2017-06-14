@@ -4,10 +4,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
     <title>Kesey</title>
-  <link href="style.156d4d6aa2f56314e0848b1cc56856b1.css" rel="stylesheet"></head>
+  <link href="style.e0ce3b29885a8de9aad7d787121183df.css" rel="stylesheet"></head>
   <body>
-    <div id='root'>
-      Loading...
+    <div id="root">
+      <div class="loader"></div>
+      <style>
+        body {
+          background: #1a1a1a;
+          color: #white;
+          margin: 0;
+        }
+        #root {
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .loader {
+          border: 5px solid #333;
+          border-top: 5px solid #83ffc8;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      </style>
     </div>
-  <script type="text/javascript" src="vendor.0fdf70070c2f1b3b1aa3.js"></script><script type="text/javascript" src="app.5cd07c18795d0b1b835b.js"></script></body>
+  <script type="text/javascript" src="vendor.3afd26c38a60133204f6.js"></script><script type="text/javascript" src="app.8f8c96748c6df9e79a24.js"></script></body>
 </html>

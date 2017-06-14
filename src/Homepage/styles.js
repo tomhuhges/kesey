@@ -1,8 +1,7 @@
 const styles = {
-  container: 'sans-serif bg-darkest-gray near-white min-vh-100 mw-1080',
-  inner: 'tc w-100 ph3',
-  h1: 'roboto',
-  button: 'sans-serif bg-blue white ph4 pv3 b bn pointer',
+  body: 'w-100',
+  container: 'sans-serif min-vh-100 pt5-l',
+  inner: 'tc w-100 ph3 relative z-1',
 };
 
 export default styles;

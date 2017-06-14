@@ -1,12 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Typist from 'react-typist';
 import styles from './styles';
 
 class HeroAnimation extends React.Component {
   render() {
+    const { name, highlight } = this.props;
     return (
-      <div className={styles.container}>
-        <div className="cloud"></div>
+      <div className={`${styles.container} ${name}`}>
         <div className="screen left" />
         <div className="screen right" />
         <div className="screen">
@@ -21,7 +22,7 @@ class HeroAnimation extends React.Component {
               <div className="screen__bar" />
             </div>
           </div>
-          <div className="screen__text">
+          <div className={`screen__text ${highlight}`}>
             <Typist
               avgTypingDelay={500}
               stdTypingDelay={200}
@@ -60,4 +61,6 @@ class HeroAnimation extends React.Component {
   }
 }
 
-export default HeroAnimation;
+const mapStateToProps = state => state.theme;
+
+export default connect(mapStateToProps)(HeroAnimation);

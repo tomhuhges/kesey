@@ -26,9 +26,14 @@
   opacity: 0.9;
   transform: scaleX(0.8) skew(20deg) rotateZ(20deg) translateY(75px);
   border-radius: 5px;
+  background: linear-gradient(to bottom, rgba(180, 200, 255, 0.7), #f7f7f8);
+  box-shadow: inset 0px 0px 50px rgba(247, 247, 248, 0.5);
+  transition: transform 0.5s ease-out;
+}
+
+.hero-animation__container.night .screen {
   background: linear-gradient(to bottom, rgba(30, 100, 80, 0.7), #1a1a1a);
   box-shadow: inset 0px 0px 50px rgba(26, 26, 26, 0.5);
-  transition: transform 0.5s ease-out;
 }
 
 .hero-animation__container .screen:hover {
@@ -41,8 +46,11 @@
   left: 50%;
   top: 30%;
   opacity: 0.1;
+  background: linear-gradient(to bottom, #4353ff, rgba(247, 247, 248, 0));
+}
+
+.hero-animation__container.night .screen.left {
   background: linear-gradient(to bottom, #37dc93, rgba(26, 26, 26, 0));
-  box-shadow: inset 0px 0px 50px rgba(26, 26, 26, 0.5);
 }
 
 .hero-animation__container .screen.right {
@@ -51,16 +59,24 @@
   left: 20%;
   top: 30%;
   opacity: 0.2;
+  background: linear-gradient(to bottom, #4353ff, rgba(247, 247, 248, 0));
+}
+
+.hero-animation__container.night .screen.right {
   background: linear-gradient(to bottom, #27bf7c, rgba(26, 26, 26, 0));
 }
 
 .hero-animation__container .screen__left {
-  background: linear-gradient(to bottom, #1a8057, #1a1a1a);
   height: 100%;
   width: 20%;
   opacity: 0.5;
   position: absolute;
   top: 0;
+  background: linear-gradient(to bottom, #a3c8ff, rgba(247, 247, 248, 0));
+}
+
+.hero-animation__container.night .screen__left {
+  background: linear-gradient(to bottom, #1a8057, #1a1a1a);
 }
 
 .hero-animation__container .screen__top {
@@ -84,8 +100,12 @@
   width: 8%;
   height: 50%;
   margin: 0 2px;
-  background: #83ffc8;
+  background: #4353ff;
   border-radius: 100%;
+}
+
+.hero-animation__container.night .screen__button {
+  background: #83ffc8;
 }
 
 .hero-animation__container .screen__searchbar {
@@ -98,8 +118,12 @@
 .hero-animation__container .screen__bar {
   width: 40%;
   height: 70%;
-  background: #83ffc8;
+  background: #4353ff;
   border-radius: 3px;
+}
+
+.hero-animation__container.night .screen__bar {
+  background: #83ffc8;
 }
 
 .hero-animation__container .screen__text {
@@ -110,6 +134,10 @@
   font-family: 'Source code pro';
   font-size: 20px;
   text-align: left;
+  color: #4353ff;
+}
+
+.hero-animation__container.night .screen__text {
   color: #83ffc8;
 }
 
@@ -137,13 +165,21 @@
   border-radius: 5px;
   margin: 1.5%;
   opacity: 0.8;
+  background: linear-gradient(to top left, #404ff1, #7a84ff);
+}
+
+.hero-animation__container.night .key {
   background: linear-gradient(to bottom right, #59e8a9, #3d9073);
 }
 
 .hero-animation__container .key:hover {
   transform: translateX(2px) translateY(2px);
-  background: #83ffc8;
+  background: #4353ff;
   opacity: 1;
+}
+
+.hero-animation__container.night .key:hover {
+  background: #83ffc8;
 }
 
 .hero-animation__container .key.space {
