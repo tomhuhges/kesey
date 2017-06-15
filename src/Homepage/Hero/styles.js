@@ -10,7 +10,7 @@ const styles = {
     a: 'self-center self-start-l w-100',
     dbbutton: 'sans-serif fw4 bg-blue white ph4 pv3 mb2 b bn br2 pointer w-100 w-70-l',
     gdbutton: 'hero__coming-soon gray sans-serif fw4 ph4 pv3 mb2 b bn br2 w-100 w-70-l overflow-hidden relative',
-    gdbuttonspan: 'absolute w-100 mh4 pl3',
+    gdbuttonspan: 'absolute w-100 mh4 pl4',
     buttonlogo: 'w1 mr2',
   },
 };

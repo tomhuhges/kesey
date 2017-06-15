@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Feature from '../Feature/component';
+import SunsetGraph from '../SunsetGraph/component';
 import styles from './styles';
 
 class Features extends React.Component {
@@ -38,6 +39,7 @@ class Features extends React.Component {
               night writing sessions.`,
               `If you're lazy like me, it can also do it automatically.`,
             ]}
+            illustration={<SunsetGraph />}
           />
           <Feature
             title="Data Insights"

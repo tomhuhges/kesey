@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styles from './styles';
+import SunsetGraph from '../SunsetGraph/component';
 
 class Feature extends React.Component {
   render() {
@@ -26,9 +27,10 @@ class Feature extends React.Component {
           ))}
         </div>
         <div className={align === 'right' ? styles.illustrationRight : styles.illustration}>
-          { illustration ? (
+          {illustration}
+          {/* { illustration ? (
             <img src={illustration} alt={illustrationAlt} />
-          ) : null }
+          ) : null } */}
         </div>
       </div>
     );

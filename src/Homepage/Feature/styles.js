@@ -5,7 +5,7 @@ const styles = {
   titleImg: 'w2 mr3',
   h1: 'f2 di',
   p: 'f4 lh-copy',
-  illustration: 'w-50-l',
+  illustration: 'illustration w-100 w-50-l',
   illustrationRight: 'w-50-l order-0-l',
 };
 

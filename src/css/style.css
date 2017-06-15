@@ -37,7 +37,7 @@ a {
 }
 
 div {
-  transition: background-color 0.5s, color 0.5s, box-shadow 0.5s;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
 .CodeMirror {
@@ -140,6 +140,7 @@ div {
 
 .blue {
   color: #4353ff;
+  stroke: #4353ff;
 }
 
 .bg-blue {
@@ -148,6 +149,7 @@ div {
 
 .neon-green {
   color: #83ffc8;
+  stroke: #83ffc8;
 }
 
 .bg-neon-green {
@@ -188,6 +190,10 @@ div {
 
 .bs-inset-bottom.night {
   box-shadow: inset 0 -50px 100px #212121;
+}
+
+.illustration svg {
+  min-height: 350px;
 }
 
 @media (min-width: 60em) {
