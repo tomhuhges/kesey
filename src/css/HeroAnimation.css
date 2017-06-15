@@ -176,6 +176,7 @@
   transform: translateX(2px) translateY(2px);
   background: #4353ff;
   opacity: 1;
+  transition: background 0s;
 }
 
 .hero-animation__container.night .key:hover {
