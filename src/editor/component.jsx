@@ -11,7 +11,11 @@ class Editor extends Component {
   componentDidMount() {
     const { getFolder, currentFolder, getFile, currentFile } = this.props;
     getFolder(currentFolder)
-      .then(() => getFile(currentFile));
+      .then(() => {
+        if (currentFile !== '') {
+          getFile(currentFile);
+        }
+      });
   }
   render() {
     const {
@@ -49,6 +53,7 @@ class Editor extends Component {
             filename={currentFile.name}
           />
           <EditorMain
+            currentFile={currentFile}
             fileIsLoading={fileIsLoading}
             content={content}
             isTyping={isTyping}

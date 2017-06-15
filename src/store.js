@@ -1,13 +1,14 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import reducer from './reducers';
+import { getItem } from './services/localstorage';
 import defaultState from './Editor/defaultState';
 import { dayTheme } from './css/themes';
 
 const persistedState = {
-  auth: localStorage.getItem('auth') ? JSON.parse(localStorage.getItem('auth')) : { authenticated: false },
-  editor: localStorage.getItem('editor') ? Object.assign({}, defaultState, JSON.parse(localStorage.getItem('editor'))) : defaultState,
-  theme: localStorage.getItem('theme') ? localStorage.getItem('theme') : dayTheme,
+  auth: getItem('auth') ? getItem('auth') : { authenticated: false, token: '' },
+  editor: getItem('editor') ? Object.assign({}, defaultState, getItem('editor')) : defaultState,
+  theme: getItem('theme') ? getItem('theme') : dayTheme,
 };
 
 const store = createStore(

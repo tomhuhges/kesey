@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import CodeMirror from 'react-codemirror';
 import Loading from '../Loading/component';
+import EditorEmptyState from '../EditorEmptyState/component';
 import styles from './styles';
 
 require('../../node_modules/codemirror/mode/gfm/gfm');
@@ -13,10 +14,13 @@ const options = {
 };
 
 const EditorMain = (props) => {
-  const { fileIsLoading, content, isTyping } = props;
-  return fileIsLoading ? (
-    <Loading />
-  ) : (
+  const { currentFile, fileIsLoading, content, isTyping } = props;
+  if (fileIsLoading) {
+    return <Loading />;
+  } else if (currentFile.name === '') {
+    return <EditorEmptyState />;
+  }
+  return (
     <CodeMirror
       className={styles.container}
       value={content}
@@ -27,6 +31,7 @@ const EditorMain = (props) => {
 };
 
 EditorMain.propTypes = {
+  currentFile: PropTypes.object.isRequired,
   fileIsLoading: PropTypes.bool.isRequired,
   content: PropTypes.string.isRequired,
   isTyping: PropTypes.func.isRequired,

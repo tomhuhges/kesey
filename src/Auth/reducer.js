@@ -5,7 +5,7 @@ import {
   LOGOUT,
 } from './constants';
 
-export default (state = { authenticated: false }, action) => {
+export default (state = { authenticated: false, token: '' }, action) => {
   switch (action.type) {
     case LOGIN_REQUEST:
       return Object.assign({}, state, action.payload);

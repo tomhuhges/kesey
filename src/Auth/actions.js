@@ -1,4 +1,5 @@
 import Dropbox from 'dropbox';
+import { setItem } from '../services/localstorage';
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -7,11 +8,8 @@ import {
 } from './constants';
 
 export const loginRequest = (token) => {
-  const payload = {
-    authenticated: false,
-    token,
-  };
-  localStorage.setItem('auth', JSON.stringify(payload));
+  const payload = { token };
+  setItem('auth', payload);
   return {
     type: LOGIN_REQUEST,
     payload,
@@ -23,7 +21,7 @@ export const loginSuccess = (user) => {
     authenticated: true,
     user,
   };
-  localStorage.setItem('auth', JSON.stringify(payload));
+  setItem('auth', payload);
   return {
     type: LOGIN_SUCCESS,
     payload,
@@ -49,10 +47,11 @@ export const login = token => (
   }
 );
 
-export const logout = () => ({
-  type: LOGOUT,
-  payload: {
+export const logout = () => {
+  const payload = {
     authenticated: false,
     token: '',
-  },
-});
+  };
+  localStorage.setItem('auth', JSON.stringify(payload));
+  return { type: LOGOUT, payload };
+};

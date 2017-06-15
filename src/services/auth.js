@@ -1,8 +1,7 @@
 import query from 'query-string';
+import { itemPropertyExists } from './localstorage';
 
-const getToken = () => {
-  return localStorage.getItem('auth') ? JSON.parse(localStorage.getItem('auth')).token : undefined;
-};
+const getToken = () => itemPropertyExists('auth', 'token');
 
 const getParamsFromUrl = url => query.parse(url);
 

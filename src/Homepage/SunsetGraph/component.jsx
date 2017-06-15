@@ -80,6 +80,7 @@ class SunsetGraph extends React.Component {
         {Array.from(Array(100).keys()).map((_, i) => (
           <line
             {...this.plotPoint(i)}
+            key={i}
             style={{ stroke: `url(#line-${name})`, strokeWidth: '2' }}
           />
         ))}

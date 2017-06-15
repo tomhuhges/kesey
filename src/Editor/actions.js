@@ -1,4 +1,5 @@
 import Dropbox from 'dropbox';
+import { setItem } from '../services/localstorage';
 import {
   GET_FOLDER_REQUEST,
   GET_FOLDER_SUCCESS,
@@ -41,9 +42,7 @@ export const getFolderFailure = getFolderError => (
 );
 
 export const updateCurrentFolder = (currentFolder) => {
-  let storage = JSON.parse(localStorage.getItem('editor'));
-  storage = Object.assign({}, storage, { currentFolder });
-  localStorage.setItem('editor', JSON.stringify(storage));
+  setItem('editor', { currentFolder });
   return {
     type: UPDATE_CURRENT_FOLDER,
     payload: { currentFolder },
@@ -90,9 +89,7 @@ export const getFileFailure = getFileError => (
 );
 
 export const updateCurrentFile = (currentFile) => {
-  let storage = JSON.parse(localStorage.getItem('editor'));
-  storage = Object.assign({}, storage, { currentFile });
-  localStorage.setItem('editor', JSON.stringify(storage));
+  setItem('editor', { currentFile });
   return {
     type: UPDATE_CURRENT_FILE,
     payload: { currentFile },
